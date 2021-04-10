@@ -20,7 +20,7 @@ export class Server
 	{
 		const router: Router = express.Router()
 
-		/* Router Initializer */
+		/** Router Initializer */
       	Object.entries(routes).forEach(([name, route]) => router.use(route.path, route.router))
 		this.app.use('/', router)
 	}
