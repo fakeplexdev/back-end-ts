@@ -19,5 +19,5 @@ $ npm start
 
 ## Java-side
 There are many ways in which you can make GET/POST request from Java.
-The one that was used with this application can be found [here](https://github.com/fakeplexdev/post-get-java) Which
-is also a seperate project explaining how I make the requests.
+The one that was used with this application can be found [here](https://github.com/fakeplexdev/post-get-java)
+Which is also a seperate project explaining how I make the requests.
