@@ -15,15 +15,13 @@ export class Server
 		this.app.use(helmet())
 	}
 
-	/**
-	 * Sets all routes used in the back-end
-	 */
+	/* Sets all routes used in the back-end */
 	public set_routes = () => 
 	{
 		const router: Router = express.Router()
 
-		/* Router Initializer */
-      Object.entries(routes).forEach(([name, route]) => router.use(route.path, route.router))
+		/** Router Initializer */
+      	Object.entries(routes).forEach(([name, route]) => router.use(route.path, route.router))
 		this.app.use('/', router)
 	}
 
