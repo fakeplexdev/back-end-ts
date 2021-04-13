@@ -1,8 +1,9 @@
-import db_map from '../database'
+import { Database, db } from '../database'
 import { Document, Schema } from 'mongoose'
 
-let db = db_map.get('account')!
-
+/*
+ * Used to set the intellisense properties 
+ */
 export interface IPlayer extends Document 
 {
    id?: string,
@@ -17,6 +18,9 @@ export interface IPlayer extends Document
    extra: string[]
 }
 
+/*
+ * Player model
+ */
 const Player: Schema = new Schema
 ({
    unique: { type: String, unique: true },
@@ -31,4 +35,4 @@ const Player: Schema = new Schema
 }, 
 { collection: 'player', versionKey: false })
 
-export default db.model<IPlayer>('Player', Player)
+export default db(Database.ACCOUNT).model<IPlayer>('Player', Player)

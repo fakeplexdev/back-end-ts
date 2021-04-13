@@ -1,8 +1,9 @@
-import db_map from '../database'
+import { Database, db } from '../database'
 import { Document, Schema } from 'mongoose'
 
-let db = db_map.get('account')!
-
+/*
+ * Used to set the intellisense properties 
+ */
 export interface IKit extends Document 
 {
    unique: string, 
@@ -13,6 +14,9 @@ export interface IKit extends Document
    defaultType: boolean
 }
 
+/*
+ * Kit model
+ */
 const Kit: Schema = new Schema
 ({
    unique: { type: String },
@@ -24,4 +28,4 @@ const Kit: Schema = new Schema
 }, 
 { collection: 'kitProgression', versionKey: false })
 
-export default db.model<IKit>('Kit', Kit)
+export default db(Database.ACCOUNT).model<IKit>('Kit', Kit)

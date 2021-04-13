@@ -1,9 +1,10 @@
-import db_map from '../database'
+import { Database, db } from '../database'
 import { Document, Schema } from 'mongoose'
 
-let db = db_map.get('server')!
-
-interface IBooster extends Document 
+/*
+ * Used to set the intellisense properties 
+ */
+export interface IBooster extends Document 
 {
    boosterGroup: string, 
    activatorUUID: string,
@@ -12,8 +13,9 @@ interface IBooster extends Document
    duration: number
 }
 
-export { IBooster }
-
+/*
+ * Booster model
+ */
 const Booster: Schema = new Schema
 ({
    boosterGroup: { type: String },
@@ -24,4 +26,4 @@ const Booster: Schema = new Schema
 }, 
 { collection: 'boosters', versionKey: false })
 
-export default db.model<IBooster>('Booster', Booster)
+export default db(Database.ACCOUNT).model<IBooster>('Booster', Booster)

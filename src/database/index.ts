@@ -13,16 +13,24 @@ const MONGO_OPTIONS =
 	retryWrites: false
 }
 
-const db_array: string[] = ['account', 'bungee', 'server']
-const db_map: Map<string, Connection> = new Map<string, Connection>()
+/* MongoDB Connection Holder */
+const map: Map<string, Connection> = new Map<string, Connection>()
 
-db_array.forEach(db => 
+/* Enumerator for all Databases stored in MongoDB */
+enum Database { ACCOUNT, BUNGEE, SERVER }
+
+for (const db in  Database)
 {
-	db_map.set(db, mongoose.createConnection
-	(
-		//mongodb://<username>:<password>@<host>:<port>/<db>?authSource=<auth_db>
-		`${process.env.MONGO_URL!}${db}?authSource=${process.env.AUTH_SOURCE!}`, MONGO_OPTIONS
-	))
-})
+	map.set(db, mongoose.createConnection
+		(
+			//mongodb://<username>:<password>@<host>:<port>/<db>?authSource=<auth_db>
+			`${process.env.MONGO_URL!}${db.toLowerCase()}?authSource=${process.env.AUTH_SOURCE!}`, MONGO_OPTIONS
+		))
+}
 
-export default db_map
+function db(type: Database): Connection
+{
+	return map.get(type.toString())!
+}
+
+export { Database, db }

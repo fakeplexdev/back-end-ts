@@ -1,8 +1,9 @@
-import db_map from '../database'
+import { Database, db } from '../database'
 import { Document, Schema } from 'mongoose'
 
-let db = db_map.get('bungee')!
-
+/*
+ * Used to set the intellisense properties 
+ */
 export interface IMOTD extends Document 
 {
    unique: string, 
@@ -16,6 +17,9 @@ export interface IMOTD extends Document
    id?: string
 }
 
+/*
+ * MOTD model 
+ */
 const MOTD: Schema = new Schema
 ({
    headline: { type: String },
@@ -23,4 +27,4 @@ const MOTD: Schema = new Schema
 }, 
 { collection: 'globalMotd', versionKey: false })
 
-export default db.model<IMOTD>('MOTD', MOTD)
+export default db(Database.BUNGEE).model<IMOTD>('MOTD', MOTD)
