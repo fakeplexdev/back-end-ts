@@ -6,15 +6,8 @@ import { Document, Schema } from 'mongoose'
  */
 export interface IMOTD extends Document 
 {
-   unique: string, 
-   name: string,
-   primary: string, 
-   shard: number,
-   gem: number, 
-   crown: number,
-   lastLogin: number, 
-   extra: string[],
-   id?: string
+   headline: string,
+   message: string
 }
 
 /*

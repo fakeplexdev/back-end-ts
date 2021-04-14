@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import Route, { Method } from './Route'
+import Route, { Method } from '../Route'
 import Filter from 'bad-words'
 
 const filter: Filter = new Filter()

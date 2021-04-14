@@ -17,20 +17,25 @@ const MONGO_OPTIONS =
 const map: Map<string, Connection> = new Map<string, Connection>()
 
 /* Enumerator for all Databases stored in MongoDB */
-enum Database { ACCOUNT, BUNGEE, SERVER }
-
-for (const db in  Database)
-{
-	map.set(db, mongoose.createConnection
-		(
-			//mongodb://<username>:<password>@<host>:<port>/<db>?authSource=<auth_db>
-			`${process.env.MONGO_URL!}${db.toLowerCase()}?authSource=${process.env.AUTH_SOURCE!}`, MONGO_OPTIONS
-		))
+const Database = 
+{ 
+   ACCOUNT: "account", 
+   BUNGEE: "bungee", 
+   SERVER: "server" 
 }
 
-function db(type: Database): Connection
+for (const db in Database)
 {
-	return map.get(type.toString())!
+	map.set(db, mongoose.createConnection
+	(
+		//mongodb://<username>:<password>@<host>:<port>/<db>?authSource=<auth_db>
+		`${process.env.MONGO_URL!}${db.toLowerCase()}?authSource=${process.env.AUTH_SOURCE!}`, MONGO_OPTIONS
+	))
+}
+
+function db(type: string): Connection
+{
+	return map.get(type.toUpperCase())!
 }
 
 export { Database, db }
