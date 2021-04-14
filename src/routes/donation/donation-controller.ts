@@ -54,7 +54,7 @@ export const reward = (data: IReward) =>
 {
    return new Promise<any>(async (resolve, reject) =>
    {
-      resolve((await Player.updateOne({name: data.name}, { $inc: JSON.parse(`{"${data.type}":${data.amount}}`) })).ok >= 1)
+      resolve( (await Player.updateOne({name: data.name}, { $inc: JSON.parse(`{"${data.type.toLowerCase()}":${data.amount}}`) })).ok >= 1)
    })
 }
 
