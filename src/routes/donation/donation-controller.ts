@@ -1,6 +1,6 @@
-import { KnownPurchase, UnknownPurchase, IReward, GlobalCurrency } from '../models/donation-model'
-import Player, { IPlayer } from '../models/player-model'
-import * as _ from './login-controller'
+import { KnownPurchase, UnknownPurchase, IReward, GlobalCurrency } from './donation-model'
+import Player, { IPlayer } from '../../models/player-model'
+import * as _ from '../../controllers/login-controller'
 
 /**
  * 

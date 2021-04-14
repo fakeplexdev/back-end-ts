@@ -1,4 +1,4 @@
-import { Database, db } from '../database'
+import { Database, db } from '../../database'
 import { Document, Schema } from 'mongoose'
 
 /*

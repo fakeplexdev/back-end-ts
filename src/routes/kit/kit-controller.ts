@@ -1,4 +1,4 @@
-import Kit, { IKit } from '../models/kit-model'
+import Kit, { IKit } from './kit-model'
 
 /**
  * 

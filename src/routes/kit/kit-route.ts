@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { IKit } from '../models/kit-model'
-import * as _ from '../controllers/kit-controller'
-import Route, { Method } from './Route'
+import { IKit } from './kit-model'
+import * as _ from './kit-controller'
+import Route, { Method } from '../Route'
 
 /** @category `Kit` */
 class Kit extends Route

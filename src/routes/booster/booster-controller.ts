@@ -1,4 +1,4 @@
-import Booster, { IBooster } from '../models/booster-model'
+import Booster, { IBooster } from './booster-model'
 
 /**
  * 

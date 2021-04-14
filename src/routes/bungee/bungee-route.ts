@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import * as _ from '../controllers/bungee-controller'
-import Route, { Method } from './Route'
+import * as _ from './bungee-controller'
+import Route, { Method } from '../Route'
 
 /** @category `Bungee` */
 class Bungee extends Route

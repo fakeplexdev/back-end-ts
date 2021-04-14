@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import * as _ from '../controllers/booster-controller'
-import Route, { Method } from './Route'
+import * as _ from './booster-controller'
+import Route, { Method } from '../Route'
 
 /** @category `Booster` */
 class Booster extends Route

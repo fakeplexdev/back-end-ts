@@ -1,4 +1,4 @@
-import MOTD, { IMOTD } from '../models/bungee-model'
+import MOTD, { IMOTD } from './bungee-model'
 
 /**
  * @returns The global MOTD calleds by BungeeCord

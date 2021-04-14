@@ -1,4 +1,4 @@
-import Player, { IPlayer } from '../models/player-model'
+import Player, { IPlayer } from './login-model'
 
 export const getPlayer = (name: string, unique: string) => 
 {

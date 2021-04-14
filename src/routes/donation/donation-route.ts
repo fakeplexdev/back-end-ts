@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import * as _ from '../controllers/donation-controller'
-import Route, { Method } from './Route'
+import * as _ from './donation-controller'
+import Route, { Method } from '../Route'
 
 /** @category `Account` */
 class Donation extends Route
@@ -19,7 +19,6 @@ class Donation extends Route
    onLogin(req: Request, res: Response)
    {
       /* Send JSON */
-      const { name, unique } = req.body
       _.getPackages(req.body)
       
       /* Response from controller */

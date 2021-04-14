@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import * as _ from '../controllers/login-controller'
-import Route, { Method } from './Route'
+import * as _ from './login-controller'
+import Route, { Method } from '../Route'
 
 /** @category `Account` */
 class Login extends Route
